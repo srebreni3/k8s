@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort
+  ports:
+    - port: 3050
+      targetPort: 3000
+      nodePort: 31515
+  selector:
+    component: web
+
+# Kind represents the type of Kubernetes object that we want to make, in this case, a Service.
+# Objects serve different purposes - running a container (pod), monitoring a container, setting up networking (service), etc.
