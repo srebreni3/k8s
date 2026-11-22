@@ -1,22 +1,45 @@
-# Terraform working directory
+# --- Terraform ---
 .terraform/
-
-# Local state files
 *.tfstate
 *.tfstate.*
-
-# Crash logs
+*.tfplan
 crash.log
 crash.*.log
-
-# Variable files containing secrets
-*.tfvars
-*.tfvars.json
-
-# Local Terraform overrides
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+# Variable files can contain secrets (terraform.tfvars holds the NVD key)
+*.tfvars
+*.tfvars.json
+# NOTE: .terraform.lock.hcl is intentionally committed (pins provider versions)
 
-.terraform/.terraform.lock.hcl
+# --- Secrets & credentials ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+kubeconfig*
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Node / frontend ---
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# --- OS / editor / tools ---
+.DS_Store
+.vscode/
+.idea/
+.claude
